@@ -6,16 +6,39 @@
 	},
 	"item": [
 		{
-			"name": "https://sos1718-10.herokuapp.com/api/v1/buses/loadInitialData",
+			"name": "DELETE A COLECCION",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
-						"id": "0ad2fc9a-1a79-4e9f-a32b-5b94d046be77",
+						"id": "eab02773-b04c-4540-82a9-46ebca85705e",
 						"type": "text/javascript",
 						"exec": [
-							"var jsonData = JSON.parse(responseBody);",
-							"tests[\"Buses list should have more than 5 Buses\"] = (jsonData.length >= 5);"
+							"tests[\"Conjunto vacío\"] = responseCode.code === 204;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"url": "https://sos1718-jun-vcm.herokuapp.com/api/v1/buses"
+			},
+			"response": []
+		},
+		{
+			"name": "GET LOAD INITIAL DATA",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "01b66267-ebe5-4ab5-bfbe-66364c8f39d7",
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 201\", function () {",
+							"    pm.response.to.have.status(201);",
+							"});"
 						]
 					}
 				}
@@ -24,40 +47,21 @@
 				"method": "GET",
 				"header": [],
 				"body": {},
-				"url": {
-					"raw": "https://sos1718-10.herokuapp.com/api/v1/buses?apikey=davvicfra",
-					"protocol": "https",
-					"host": [
-						"sos1718-10",
-						"herokuapp",
-						"com"
-					],
-					"path": [
-						"api",
-						"v1",
-						"buses"
-					],
-					"query": [
-						{
-							"key": "apikey",
-							"value": "davvicfra"
-						}
-					]
-				}
+				"url": "https://sos1718-jun-vcm.herokuapp.com/api/v1/buses/loadInitialData"
 			},
 			"response": []
 		},
 		{
-			"name": "https://sos1718-10.herokuapp.com/api/v1/buses/loadInitialData",
+			"name": "GET A LA COLECCION",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
-						"id": "abeba3c7-7a4b-4479-9602-8932430cb6cb",
+						"id": "84af78fb-4aca-4514-842a-30e7845b3d37",
 						"type": "text/javascript",
 						"exec": [
 							"var jsonData = JSON.parse(responseBody);",
-							"tests[\"andalucia\"] = responseCode.code === 200;"
+							"tests[\"created\"] = responseCode.code === 200;"
 						]
 					}
 				}
@@ -66,17 +70,62 @@
 				"method": "GET",
 				"header": [],
 				"body": {},
-				"url": "https://sos1718-10.herokuapp.com/api/v1/buses/andalucia"
+				"url": "https://sos1718-jun-vcm.herokuapp.com/api/v1/buses"
 			},
 			"response": []
 		},
 		{
-			"name": "https://sos1718-10.herokuapp.com/api/v1/buses/loadInitialData",
+			"name": "GET A UN RECURSO",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
-						"id": "1a08b1bb-e70e-4cb2-8ad6-0d9cd423a68d",
+						"id": "1113f281-e9fc-42d8-bf45-b3dfb7dbdb0f",
+						"type": "text/javascript",
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"tests[\"datos de la comunidad\"] = responseCode.code === 200;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": "https://sos1718-jun-vcm.herokuapp.com/api/v1/buses/madrid"
+			},
+			"response": []
+		},
+		{
+			"name": "GET A UN RECURSO INEXISTENTE",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "dd6096ab-17f7-46b8-bb2b-9804925ba32e",
+						"type": "text/javascript",
+						"exec": [
+							"tests[\"No existe el recurso\"] = responseCode.code === 404;"
+						]
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": "https://sos1718-jun-vcm.herokuapp.com/api/v1/buses/portugal"
+			},
+			"response": []
+		},
+		{
+			"name": "GET RECURSO BASE (LIMIT=3,OFFSET=3)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ff6603c1-5d48-4e52-84e5-b8a21af7cdfc",
 						"type": "text/javascript",
 						"exec": [
 							"var jsonData = JSON.parse(responseBody);",
@@ -90,10 +139,10 @@
 				"header": [],
 				"body": {},
 				"url": {
-					"raw": "https://sos1718-10.herokuapp.com/api/v1/buses?limit=3&offset=3",
+					"raw": "https://sos1718-jun-vcm.herokuapp.com/api/v1/buses?limit=3&offset=2",
 					"protocol": "https",
 					"host": [
-						"sos1718-10",
+						"sos1718-jun-vcm",
 						"herokuapp",
 						"com"
 					],
@@ -109,11 +158,7 @@
 						},
 						{
 							"key": "offset",
-							"value": "3"
-						},
-						{
-							"key": null,
-							"value": null
+							"value": "2"
 						}
 					]
 				}
@@ -121,7 +166,7 @@
 			"response": []
 		},
 		{
-			"name": "https://sos1718-10.herokuapp.com/api/v1/buses/loadInitialData",
+			"name": "POST",
 			"event": [
 				{
 					"listen": "test",
@@ -146,20 +191,20 @@
 					"mode": "raw",
 					"raw": "{\n        \"community\": \"valencia\",\n        \"year\": 2018,\n        \"month\": \"january\",\n        \"occupation\": 6.3,\n        \"transportedTraveler\": \"7373\",\n        \"country\": \"spain\"\n    }"
 				},
-				"url": "https://sos1718-10.herokuapp.com/api/v1/buses"
+				"url": "https://sos1718-jun-vcm.herokuapp.com/api/v1/buses"
 			},
 			"response": []
 		},
 		{
-			"name": "https://sos1718-10.herokuapp.com/api/v1/buses/loadInitialData",
+			"name": "POST RECURSO EXISTENTE",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
-						"id": "d120abe5-06ad-4aad-8fa4-66a800a5e062",
+						"id": "26d84882-1c09-4b2e-917e-48f78dc3d251",
 						"type": "text/javascript",
 						"exec": [
-							"tests[\"Metodo no permitido (405)\"] = responseCode.code === 405;"
+							"tests[\"CONFLICTO (409)\"] = responseCode.code === 409;"
 						]
 					}
 				}
@@ -176,12 +221,12 @@
 					"mode": "raw",
 					"raw": "{\n        \"community\": \"valencia\",\n        \"year\": 2018,\n        \"month\": \"january\",\n        \"occupation\": 6.3,\n        \"transportedTraveler\": \"7373\",\n        \"country\": \"spain\"\n    }"
 				},
-				"url": "https://sos1718-10.herokuapp.com/api/v1/buses/2018"
+				"url": "https://sos1718-jun-vcm.herokuapp.com/api/v1/buses"
 			},
 			"response": []
 		},
 		{
-			"name": "https://sos1718-10.herokuapp.com/api/v1/buses/loadInitialData",
+			"name": "PUT",
 			"event": [
 				{
 					"listen": "test",
@@ -206,20 +251,20 @@
 					"mode": "raw",
 					"raw": "{\n        \"community\": \"murcia\",\n        \"year\": 2018,\n        \"month\": \"january\",\n        \"occupation\": 6.3,\n        \"transportedTraveler\": \"7373\",\n        \"country\": \"spain\"\n    }"
 				},
-				"url": "https://sos1718-10.herokuapp.com/api/v1/buses/murcia"
+				"url": "https://sos1718-jun-vcm.herokuapp.com/api/v1/buses/murcia"
 			},
 			"response": []
 		},
 		{
-			"name": "https://sos1718-10.herokuapp.com/api/v1/buses/loadInitialData Copy",
+			"name": "PUT ERRONEO",
 			"event": [
 				{
 					"listen": "test",
 					"script": {
-						"id": "03539488-2d37-4389-ae77-113966fa2737",
+						"id": "10140f9a-eeb9-4115-93bd-037fee720531",
 						"type": "text/javascript",
 						"exec": [
-							"tests[\"Status code is 200\"] = responseCode.code === 200;"
+							"tests[\"No puede modificar un elemento del conjunto\"] = responseCode.code === 405;"
 						]
 					}
 				}
@@ -234,90 +279,14 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n        \"community\": \"murcia\",\n        \"year\": 2018,\n        \"month\": \"january\",\n        \"occupation\": 6.3,\n        \"transportedTraveler\": \"7373\",\n        \"country\": \"spain\"\n    }"
+					"raw": "{\n        \"community\": \"murcia\",\n        \"year\": 5234,\n        \"month\": \"january\",\n        \"occupation\": 6.3,\n        \"transportedTraveler\": \"7373\",\n        \"country\": \"spain\"\n    }"
 				},
-				"url": "https://sos1718-10.herokuapp.com/api/v1/buses/murcia"
+				"url": "https://sos1718-jun-vcm.herokuapp.com/api/v1/buses"
 			},
 			"response": []
 		},
 		{
-			"name": "https://sos1718-10.herokuapp.com/api/v1/buses/loadInitialData",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "4ea660e7-1f31-4baf-904e-e67fb4ca44a2",
-						"type": "text/javascript",
-						"exec": [
-							"tests[\"Metodo no permitido (405)\"] = responseCode.code === 405;"
-						]
-					}
-				}
-			],
-			"request": {
-				"method": "PUT",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n        \"community\": \"valencia\",\n        \"year\": 2018,\n        \"month\": \"january\",\n        \"occupation\": 6.3,\n        \"transportedTraveler\": \"7373\",\n        \"country\": \"spain\"\n    }"
-				},
-				"url": "https://sos1718-10.herokuapp.com/api/v1/Buses"
-			},
-			"response": []
-		},
-		{
-			"name": "https://sos1718-10.herokuapp.com/api/v1/buses/loadInitialData",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "01b66267-ebe5-4ab5-bfbe-66364c8f39d7",
-						"type": "text/javascript",
-						"exec": [
-							"pm.test(\"Status code is 201\", function () {",
-							"    pm.response.to.have.status(201);",
-							"});"
-						]
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {},
-				"url": "https://sos1718-10.herokuapp.com/api/v1/buses/loadInitialData"
-			},
-			"response": []
-		},
-		{
-			"name": "https://sos1718-10.herokuapp.com/api/v1/buses",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "eab02773-b04c-4540-82a9-46ebca85705e",
-						"type": "text/javascript",
-						"exec": [
-							"tests[\"Conjunto vacío\"] = responseCode.code === 204;"
-						]
-					}
-				}
-			],
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"body": {},
-				"url": "https://sos1718-10.herokuapp.com/api/v1/buses"
-			},
-			"response": []
-		},
-		{
-			"name": "https://sos1718-10.herokuapp.com/api/v1/buses/extremadura",
+			"name": "DELETE A UN RECURSO",
 			"event": [
 				{
 					"listen": "test",
@@ -334,112 +303,7 @@
 				"method": "DELETE",
 				"header": [],
 				"body": {},
-				"url": "https://sos1718-10.herokuapp.com/api/v1/buses/extremadura"
-			},
-			"response": []
-		},
-		{
-			"name": "https://sos1718-10.herokuapp.com/api/v1/buses",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "6026b7da-7cb5-4af2-8df5-2eb3cef8f115",
-						"type": "text/javascript",
-						"exec": [
-							"tests[\"El conjunto ya estaba vacío\"] = responseCode.code === 404;"
-						]
-					}
-				}
-			],
-			"request": {
-				"method": "DELETE",
-				"header": [],
-				"body": {},
-				"url": "https://sos1718-10.herokuapp.com/api/v1/buses"
-			},
-			"response": []
-		},
-		{
-			"name": "https://sos1718-10.herokuapp.com/api/v1/buses/loadInitialData",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "1fa8bf2d-e768-4076-9c32-5b4a307e5ea2",
-						"type": "text/javascript",
-						"exec": [
-							"tests[\"POST of an existing resource\"] = responseCode.code === 409;"
-						]
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n        \"community\": \"valencia\",\n        \"year\": 2018,\n        \"month\": \"january\",\n        \"occupation\": 6.3,\n        \"transportedTraveler\": \"7373\",\n        \"country\": \"spain\"\n    }"
-				},
-				"url": "https://sos1718-10.herokuapp.com/api/v1/buses"
-			},
-			"response": []
-		},
-		{
-			"name": "https://sos1718-10.herokuapp.com/api/v1/buses/loadInitialData",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "03539488-2d37-4389-ae77-113966fa2737",
-						"type": "text/javascript",
-						"exec": [
-							"tests[\"Status code is 200\"] = responseCode.code === 200;"
-						]
-					}
-				}
-			],
-			"request": {
-				"method": "PUT",
-				"header": [
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n        \"community\": \"papa\",\n        \"year\": 2018,\n        \"month\": \"january\",\n        \"occupation\": 6.3,\n        \"transportedTraveler\": \"7373\",\n        \"country\": \"spain\"\n    }"
-				},
-				"url": "https://sos1718-10.herokuapp.com/api/v1/buses/murcia"
-			},
-			"response": []
-		},
-		{
-			"name": "https://sos1718-10.herokuapp.com/api/v1/buses/loadInitialData",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "7516106b-b244-4b20-9f28-f9d0c8c49fcf",
-						"type": "text/javascript",
-						"exec": [
-							"var jsonData = JSON.parse(responseBody);",
-							"tests[\"andalucia\"] = responseCode.code === 404;"
-						]
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {},
-				"url": "https://sos1718-10.herokuapp.com/api/v1/buses/andaluciassss"
+				"url": "https://sos1718-jun-vcm.herokuapp.com/api/v1/buses/valencia"
 			},
 			"response": []
 		}

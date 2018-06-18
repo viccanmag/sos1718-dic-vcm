@@ -1,5 +1,6 @@
 /*global angular*/
 /*global google*/
+/*global zingchart*/
 
 angular
     .module("Principal")
@@ -25,66 +26,110 @@ angular
         }
 
 
-        var c = [];
-        var n = [];
-        var t = [];
-        var p = [];
-        var union = [];
-        var googleDataInt = [
-            ["Country", "Population"]
-        ];
+
 
         $http.get("/api/v1/buses").then(function(responseBuses) {
-
-            for (var i = 0; i < responseBuses.data.length; i++) {
-                c.push([responseBuses.data[i].country,responseBuses.data[i].transportedTraveler]);
-            
-                //  t.push();
-            }
-            console.log("HOLA CABESA")
-            console.log(c);
-
-
-
-
-
             $http.get("https://restcountries.eu/rest/v2/all").then(function(responseRest) {
-                for (var i = 0; i < responseRest.data.length; i++) {
-                    c.push([responseRest.data[i].name, responseRest.data[i].population]);
+
+
+                var popuArray = [];
+                var nameArray=[];
+
+                for (var i = 0; i < 5; i++) {
+
+
+
+                    popuArray.push([responseRest.data[i].population]);
+                    nameArray.push(responseRest.data[i].name);
+                    
 
 
                 }
 
+                
 
 
-                console.log("FINALLLLL");
-                console.log(c);
-
-                googleDataInt.push(c);
-                console.log(googleDataInt);
 
 
-                google.charts.load('current', {
-                    'packages': ['geochart'],
-                    // Note: you will need to get a mapsApiKey for your project.
-                    // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
-                    'mapsApiKey': 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY'
-                });
-                google.charts.setOnLoadCallback(drawRegionsMap);
 
-                function drawRegionsMap() {
-                    var data = google.visualization.arrayToDataTable(c);
+                zingchart.THEME = "classic";
 
-                    var options = {
-                        colorAxis: { colors: ['#00853f', 'black', '#e31b23'] },
-                        backgroundColor: '#81d4fa',
-                        datalessRegionColor: '#f8bbd0',
-                        defaultColor: '#f5f5f5',
-                    };
+                var myConfig = {
+                    type: "pie",
+                    backgroundColor: "#f1f1f1 #ffffff",
+                    title: {
+                        text: "Countries Population",
+                        backgroundColor: "#052C4E"
+                    },
+                    
+                    legend: {
+                        layout: "h",
+                        align: "center",
+                        verticalAlign: "bottom",
+                        toggleAction: "remove",
+                        header: {
+                            text: "County",
+                            backgroundColor: "#052C4E"
+                        },
+                        shadow: 0
+                    },
+                    plotarea: {
+                        y: 150
+                    },
+                    plot: {
+                        refAngle: 180,
+                        size: 250,
+                        valueBox: {
+                            placement: "in",
+                            offsetR: 20
+                        }
+                    },
+                    scaleR: {
+                        aperture: 180
+                    },
+                    tooltip: {
+                        text: "%t<br>Deliveries: %v<br>Percent of Shirt %npv%",
+                        textAlign: "left",
+                        shadow: 0,
+                        borderRadius: 4,
+                        borderWidth: 2,
+                        borderColor: "#fff"
+                    },
+                    series: [{
+                            values: popuArray[0],
+                            text: nameArray[0],
+                            backgroundColor: "#2870B1"
+                        },
+                        {
+                            values: popuArray[1],
+                            text: nameArray[1],
+                            backgroundColor: "#BB1FA8"
+                        },
+                        {
+                            values: popuArray[2],
+                            text: nameArray[2],
+                            backgroundColor: "#7E971D"
+                        },
 
-                    var chart = new google.visualization.GeoChart(document.getElementById('geochart-colors'));
-                    chart.draw(data, options);
+                        {
+                            values: popuArray[3],
+                            text: nameArray[3],
+                            backgroundColor: "#FFA72A"
+
+                        },
+                        {
+                            values: popuArray[4],
+                            text: nameArray[4],
+                            backgroundColor: "#54004A"
+                        }
+                    ]
                 };
+
+                zingchart.render({
+                    id: 'myChart',
+                    data: myConfig,
+                });
+
 
             });
 
