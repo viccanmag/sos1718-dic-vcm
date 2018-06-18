@@ -3,9 +3,6 @@
 angular.module("Principal", ["ngRoute"]).config(function($routeProvider) {
     $routeProvider.when("/", {
         templateUrl: "index1.html"
-    }).when("/analytics", {
-        templateUrl: "../public_apis/integration.html",
-        controller: "integrationCtrl"
     }).
     when("/integrations", {
         templateUrl: "../public_apis/grupo.html"
