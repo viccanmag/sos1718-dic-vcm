@@ -1,0 +1,167 @@
+<html ng-app="Principal">
+
+<head>
+
+    <!------------------------------------------- Global --------------------------------------------------->
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css" type="text/css" />
+    <script type="text/javascript" src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="/bower_components/angular-route/angular-route.min.js"></script>
+    <script src="principalApp.js"></script>
+    <!------------------------------------------- PACO --------------------------------------------------->
+    <script src="../public_apis/motogp/front-end/listCtrl.js"></script>
+    <script src="../public_apis/motogp/front-end/editCtrl.js"></script>
+    <script src="../public_apis/motogp/front-end/graph1Ctrl.js"></script>
+    <script src="../public_apis/motogp/front-end/univStatsMotogpGraphsCtrl.js"></script>
+    <script src="../public_apis/motogp/front-end/pollutionCitiesMotogpGraphsCtrl.js"></script>
+    <script src="../public_apis/motogp/front-end/integration1Ctrl.js"></script>
+    <script src="../public_apis/motogp/front-end/integration2Ctrl.js"></script>
+    <script src="../public_apis/motogp/front-end/integration3Ctrl.js"></script>
+    <script src="../public_apis/motogp/front-end/integration4Ctrl.js"></script>
+    <script src="../public_apis/motogp/front-end/integrationPetaoCtrl.js"></script>
+    <script src="../public_apis/motogp/front-end/integration6Ctrl.js"></script>
+    <script src="../public_apis/motogp/front-end/integration7Ctrl.js"></script>
+    <script src="../public_apis/integrationCtrlr.js"></script>
+
+    <!---------------------------------------------------------------------------------------------------->
+
+    <!------------------------------------------- MOTOGP-STATS--------------------------------------------->
+
+    <!---------------------------------HIGHCHARTS---------------------------->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+
+
+    <script src="https://code.highcharts.com/modules/heatmap.js"></script>
+    <script src="https://code.highcharts.com/modules/tilemap.js"></script>
+
+
+    <!---------------------------GOOGLE CHARTS--------------------------------->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <!---------------------------D3-------------------------------------------->
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="../bower_components/d3/d3.min.js"></script>
+
+    <!-----------------------------CanvasJS------------------------------------>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+    <!-----------------------------ZingChart------------------------------------>
+    <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+    <script>
+        zingchart.MODULESDIR = "https://cdn.zingchart.com/modules/";
+        ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "ee6b7db5b51705a13dc2339db3edaf6d"];
+    </script>
+
+    <!-----------------------------FusionCharts------------------------------------>
+    <script src="bower_components/fusioncharts/fusioncharts.js"></script>
+    <script src="bower_components/fusioncharts/fusioncharts.charts.js"></script>
+
+    <!--------------------------------AmCharts--------------------------------------->
+    <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+    <script src="https://www.amcharts.com/lib/3/serial.js"></script>
+    <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+    <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+    <script src="https://www.amcharts.com/lib/3/xy.js"></script>
+
+
+
+
+
+
+
+    <!------------------------------BUILDERS--------------------------->
+    <script src="../public_apis/builders/front-end/listCtrl.js"></script>
+    <script src="../public_apis/builders/front-end/editCtrl.js"></script>
+    <script src="../public_apis/builders/front-end/graphCtrl.js"></script>
+
+    <!---------------------------------HIGHCHARTS---------------------------->
+    <script src="https://code.highcharts.com/modules/series-label.js"></script>
+
+
+
+    <!---------------------------GOOGLE CHARTS--------------------------------->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.bundle.js"></script>
+
+
+
+    <!-------------------------------INTEGRACION CON PROXY (CANVASJS)------------------->
+    <script src="../public_apis/builders/front-end/integrationSOS-ConProxyCtrl.js"></script>
+
+
+
+
+    <!-------------------------------INTEGRACION SIN PROXY------------------->
+    <script src="../public_apis/builders/front-end/integrationSOS-SinProxyCtrl.js"></script>
+
+    <script src="https://cdn.anychart.com/releases/8.2.1/js/anychart-base.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/8.2.1/js/anychart-ui.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/8.2.1/js/anychart-exports.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/8.2.1/js/anychart-radar.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.anychart.com/releases/8.2.1/css/anychart-ui.min.css" />
+    <link rel="stylesheet" href="https://cdn.anychart.com/releases/8.2.1/fonts/css/anychart-font.min.css" />
+
+
+    <!-----------------------------INTEGRACION API EXTERNA 1 (ANYCHART)------------------------------------->
+    <script src="../public_apis/builders/front-end/api-externa1.js"></script>
+
+    <!-----------------------------INTEGRACION API EXTERNA 2 (Highcharts)------------------------------------->
+    <script src="../public_apis/builders/front-end/api-externa2.js"></script>
+    <script src="https://code.highcharts.com/modules/funnel.js"></script>
+
+    <!-----------------------------INTEGRACION API EXTERNA 3------------------------------------->
+    <script src="../public_apis/builders/front-end/api-externa3.js"></script>
+    <script src="https://code.highcharts.com/modules/treemap.js"></script>
+
+    <!-----------------------------INTEGRACION API EXTERNA 3------------------------------------->
+    <script src="../public_apis/builders/front-end/api-externa4.js"></script>
+
+    <!-----------------------------INTEGRACION API Interna SOS 1------------------------------------->
+    <script src="../public_apis/builders/front-end/apiSOS1.js"></script>
+
+    <script src="https://www.amcharts.com/lib/3/funnel.js"></script>
+    <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+    <div id="chartdiv"></div>
+
+    <!-----------------------------INTEGRACION API Interna SOS 2------------------------------------->
+    <script src="../public_apis/builders/front-end/apiSOS2.js"></script>
+
+    <!-----------------------------INTEGRACION API Interna SOS 3------------------------------------->
+    <script src="../public_apis/builders/front-end/apiSOS3.js"></script>
+
+    <script src="https://www.amcharts.com/lib/3/radar.js"></script>
+    <script src="https://www.amcharts.com/lib/3/plugins/export/export.min.js"></script>
+    <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+    <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+    
+
+
+    <!------------------------------BUSES--------------------------->
+
+    <script src="../public_apis/buses/front-end/listCtrl.js"></script>
+    <script src="../public_apis/buses/front-end/editCtrl.js"></script>
+    <script src="../public_apis/buses/front-end/main-ctrl.js"></script>
+    <script src="../public_apis/buses/front-end/integracionCtrl.js"></script>
+    <script src="../public_apis/buses/front-end/integracionProxy.js"></script>
+    <script src="../public_apis/buses/front-end/integracionFinalI.js"></script>
+    <script src="../public_apis/buses/front-end/integracionFinalII.js"></script>
+    <script src="../public_apis/buses/front-end/integracionFinal3.js"></script>
+
+
+
+    <script type="text/javascript" src="/bower_components/eCharts/echarts.js"></script>
+
+
+
+</head>
+
+
+<body>
+    <div ng-view>
+
+    </div>
+
+</body>
+
+</html>
