@@ -39,7 +39,7 @@ angular
 
 
 
-                    popuArray.push([responseRest.data[i].population]);
+                    popuArray.push([responseBuses.data[i].population]);
                     nameArray.push(responseRest.data[i].name);
                     
 
