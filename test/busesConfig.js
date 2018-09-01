@@ -6,12 +6,12 @@ exports.config={
     
     capabilities:{
         'browserName':'phantomjs'
-    }
+    },
     
-   // params:{
-    //    host:'localhost',
-     //   port:'8080'
-    //}
+    params:{
+        host:'localhost',
+        port:'8080'
+    }
     
 };
 
