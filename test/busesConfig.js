@@ -6,15 +6,15 @@ exports.config={
     
     capabilities:{
         'browserName':'phantomjs'
-    },
-    
-    params:{
-        host:'localhost',
-        port:'8080'
     }
+    
+   // params:{
+    //    host:'localhost',
+     //   port:'8080'
+    //}
     
 };
 
-exports.getAppUrl=function(){
-    return "http://"+browser.params.host+":"+browser.params.port;
-}
+//exports.getAppUrl=function(){
+ //   return "http://"+browser.params.host+":"+browser.params.port;
+//}
