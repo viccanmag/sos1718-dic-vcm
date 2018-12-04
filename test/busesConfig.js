@@ -9,7 +9,7 @@ exports.config={
     },
     
     params:{
-        host:'sos1718-sep-vcm.herokuapp.com',
+        host:'sos1718-dic-vcm.herokuapp.com',
         port:'80'
     }
     

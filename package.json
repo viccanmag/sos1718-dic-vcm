@@ -1,5 +1,5 @@
 {
-  "name": "sos1718-sep-vcm",
+  "name": "sos1718-dic-vcm",
   "version": "0.0.0",
   "description": "my first module in nodejs",
   "main": "index.js",
@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/viccanmag/sos1718-sep-vcm"
+    "url": "git+https://github.com/viccanmag/sos1718-dic-vcm"
   },
   "author": "Grupo10",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/viccanmag/sos1718-sep-vcm/issues"
+    "url": "https://github.com/viccanmag/sos1718-dic-vcm/issues"
   },
-  "homepage": "https://github.com/viccanmag/sos1718-sep-vcm#readme",
+  "homepage": "https://github.com/viccanmag/sos1718-dic-vcm#readme",
   "dependencies": {
     "angular": "^1.7.0",
     "angular-chart.js": "^1.1.1",

@@ -47,7 +47,7 @@
 				"method": "GET",
 				"header": [],
 				"body": {},
-				"url": "https://sos1718-sep-vcm.herokuapp.com/api/v1/buses/loadInitialData"
+				"url": "https://sos1718-dic-vcm.herokuapp.com/api/v1/buses/loadInitialData"
 			},
 			"response": []
 		},
@@ -70,7 +70,7 @@
 				"method": "GET",
 				"header": [],
 				"body": {},
-				"url": "https://sos1718-sep-vcm.herokuapp.com/api/v1/buses"
+				"url": "https://sos1718-dic-vcm.herokuapp.com/api/v1/buses"
 			},
 			"response": []
 		},
@@ -93,7 +93,7 @@
 				"method": "GET",
 				"header": [],
 				"body": {},
-				"url": "https://sos1718-sep-vcm.herokuapp.com/api/v1/buses/madrid"
+				"url": "https://sos1718-dic-vcm.herokuapp.com/api/v1/buses/madrid"
 			},
 			"response": []
 		},
@@ -115,7 +115,7 @@
 				"method": "GET",
 				"header": [],
 				"body": {},
-				"url": "https://sos1718-sep-vcm.herokuapp.com/api/v1/buses/portugal"
+				"url": "https://sos1718-dic-vcm.herokuapp.com/api/v1/buses/portugal"
 			},
 			"response": []
 		},
@@ -139,7 +139,7 @@
 				"header": [],
 				"body": {},
 				"url": {
-					"raw": "https://sos1718-sep-vcm.herokuapp.com/api/v1/buses?limit=3&offset=2",
+					"raw": "https://sos1718-dic-vcm.herokuapp.com/api/v1/buses?limit=3&offset=2",
 					"protocol": "https",
 					"host": [
 						"sos1718-sep-vcm",
@@ -191,7 +191,7 @@
 					"mode": "raw",
 					"raw": "{\n        \"community\": \"valencia\",\n        \"year\": 2018,\n        \"month\": \"january\",\n        \"occupation\": 6.3,\n        \"transportedTraveler\": \"7373\",\n        \"country\": \"spain\"\n    }"
 				},
-				"url": "https://sos1718-sep-vcm.herokuapp.com/api/v1/buses"
+				"url": "https://sos1718-dic-vcm.herokuapp.com/api/v1/buses"
 			},
 			"response": []
 		},
@@ -221,7 +221,7 @@
 					"mode": "raw",
 					"raw": "{\n        \"community\": \"valencia\",\n        \"year\": 2018,\n        \"month\": \"january\",\n        \"occupation\": 6.3,\n        \"transportedTraveler\": \"7373\",\n        \"country\": \"spain\"\n    }"
 				},
-				"url": "https://sos1718-sep-vcm.herokuapp.com/api/v1/buses"
+				"url": "https://sos1718-dic-vcm.herokuapp.com/api/v1/buses"
 			},
 			"response": []
 		},
@@ -251,7 +251,7 @@
 					"mode": "raw",
 					"raw": "{\n        \"community\": \"murcia\",\n        \"year\": 2018,\n        \"month\": \"january\",\n        \"occupation\": 6.3,\n        \"transportedTraveler\": \"7373\",\n        \"country\": \"spain\"\n    }"
 				},
-				"url": "https://sos1718-sep-vcm.herokuapp.com/api/v1/buses/murcia"
+				"url": "https://sos1718-dic-vcm.herokuapp.com/api/v1/buses/murcia"
 			},
 			"response": []
 		},
@@ -281,7 +281,7 @@
 					"mode": "raw",
 					"raw": "{\n        \"community\": \"murcia\",\n        \"year\": 5234,\n        \"month\": \"january\",\n        \"occupation\": 6.3,\n        \"transportedTraveler\": \"7373\",\n        \"country\": \"spain\"\n    }"
 				},
-				"url": "https://sos1718-sep-vcm.herokuapp.com/api/v1/buses"
+				"url": "https://sos1718-dic-vcm.herokuapp.com/api/v1/buses"
 			},
 			"response": []
 		},
@@ -303,7 +303,7 @@
 				"method": "DELETE",
 				"header": [],
 				"body": {},
-				"url": "https://sos1718-sep-vcm.herokuapp.com/api/v1/buses/valencia"
+				"url": "https://sos1718-dic-vcm.herokuapp.com/api/v1/buses/valencia"
 			},
 			"response": []
 		}
