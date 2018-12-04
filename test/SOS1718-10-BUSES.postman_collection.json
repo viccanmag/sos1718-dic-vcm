@@ -23,7 +23,7 @@
 				"method": "DELETE",
 				"header": [],
 				"body": {},
-				"url": "https://sos1718-sep-vcm.herokuapp.com/api/v1/buses"
+				"url": "https://sos1718-dic-vcm.herokuapp.com/api/v1/buses"
 			},
 			"response": []
 		},
@@ -142,7 +142,7 @@
 					"raw": "https://sos1718-dic-vcm.herokuapp.com/api/v1/buses?limit=3&offset=2",
 					"protocol": "https",
 					"host": [
-						"sos1718-sep-vcm",
+						"sos1718-dic-vcm",
 						"herokuapp",
 						"com"
 					],
