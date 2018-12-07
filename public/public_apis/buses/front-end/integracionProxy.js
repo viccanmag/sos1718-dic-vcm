@@ -38,7 +38,7 @@ angular
 
             //console.log(aBuses);
 
-            $http.get("https://sos1718-10.herokuapp.com/proxyBuses").then(function(responseProxy) {
+            $http.get("https://sos1718-dic-vcm.herokuapp.com/proxyBuses").then(function(responseProxy) {
                 var aOpen = [];
                 var aBuses = [];
 
